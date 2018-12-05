@@ -26,7 +26,7 @@ This script:
  
  The script:
  
- *The script loops over the variable names in varname
+ * The script loops over the variable names in varname
     * The script calculates the optimal signal-to-noise (e) and correlation length (l) parameters for the (full) years 2000 to 2016 by cross validation.
     * These optimal parameters are stored in
        *  /varname/varname_newe.txt
@@ -61,10 +61,10 @@ The script
 
 with as season a number between 1 and 4:
 
-   1: months 1-3
-   2: months 4-6
-   3: months 7-9
-   4: months 10-12
+1. months 1-3
+2. months 4-6
+3. months 7-9
+4. months 10-12
 
  
 
