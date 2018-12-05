@@ -7,10 +7,13 @@ This directory contains all the steps to create the latest gridded map products 
 
 # Data
 The data that was used for these products are the SAHFOS/Marine Biological Association (UK) data (https://www.cprsurvey.org/) from the North Atlantic, from 1958 to 2016.
+
 (MBA is currently checking how they will open up these data - we will add a link to the data here)
 
  # preprocessing
- The raw csv file is first preprocessed in https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/00_Preprocess_OOPS-data.R. This script:
+ The raw csv file is first preprocessed in https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/00_Preprocess_OOPS-data.R.
+ 
+This script:
  
 1. load original datafile
 2. calculate for each species/variable the log(x +1)
@@ -21,14 +24,18 @@ The data that was used for these products are the SAHFOS/Marine Biological Assoc
  In the next file, the optimal interpolation parameters are calculated
  https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/01_OOPS_1yr_param_calculation_2000_2016.ipynb
  
+ The script:
  
-    The script loops over the variable names in varname
-    The script calculates the optimal signal-to-noise (e) and correlation length (l) parameters for the (full) years 2000 to 2016 by cross validation.
-    These optimal parameters are stored in
-        /varname/varname_newe.txt
-        /varname/varname_newl.txt
+ *The script loops over the variable names in varname
+    * The script calculates the optimal signal-to-noise (e) and correlation length (l) parameters for the (full) years 2000 to 2016 by cross validation.
+    * These optimal parameters are stored in
+       *  /varname/varname_newe.txt
+        * /varname/varname_newl.txt
 
  # Calculation of DIVA interpolated products:
+ 
+ https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/02_OOPS_diva3d_calculation_1param.ipynb
+ 
  
 * The script loops over the variable names in _varname_
     * the signal-to-noise (e) and correlation length (l) parameters calculated in the previous script are loaded from
@@ -41,21 +48,23 @@ The data that was used for these products are the SAHFOS/Marine Biological Assoc
         * per year
     * the output netcdf files are stored in /_varname_/netcdf_all/"
 
- https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/02_OOPS_diva3d_calculation_1param.ipynb
- 
- # combining all the separate NetCDF files for one species per season
 
  
-    The script loops over the variable names in varname
-    creates a new directory /varname/netcdf_season/
-    and combines the data of the netcdfs in /varname/netcdf_all into 4 netcdfs (one per season): varname_StartyearEndyear_season.nc
+ # combining all the separate NetCDF files for one species per season
+ https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/03_Postprocessing_Combine_Netcdfs_per_season.ipynb
+ 
+The script
+
+* loops over the variable names in varname
+* creates a new directory /varname/netcdf_season/
+* and combines the data of the netcdfs in /varname/netcdf_all into 4 netcdfs (one per season): varname_StartyearEndyear_season.nc
 
 with as season a number between 1 and 4:
 
-    1: months 1-3
-    2: months 4-6
-    3: months 7-9
-    4: months 10-12
+   1: months 1-3
+   2: months 4-6
+   3: months 7-9
+   4: months 10-12
 
  
- https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/03_Postprocessing_Combine_Netcdfs_per_season.ipynb
+
