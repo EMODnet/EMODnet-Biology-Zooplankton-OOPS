@@ -8,7 +8,8 @@ This directory contains all the steps to create the latest gridded map products 
 # Data
 The data that was used for these products are the SAHFOS/Marine Biological Association (UK) data (https://www.cprsurvey.org/) from the North Atlantic, from 1958 to 2016.
 
-(MBA is currently checking how they will open up these data - we will add a link to the data here)
+All data is available here:
+CPR Survey. (2018). Operational Oceanographic Products and Services (OOPS) CPR Survey Data Extract (2016) [Data set]. Marine Biological Association. https://doi.org/10.17031/W508-X849
 
  # preprocessing
  The raw csv file is first preprocessed in https://github.com/EMODnet/EMODnet-Biology-Zooplankton-OOPS/blob/master/00_Preprocess_OOPS-data.R.
