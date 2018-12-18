@@ -2,7 +2,9 @@
 # EMODnet-Biology-Zooplankton-OOPS
 Workflow for the calculation of OOPS zooplankton gridded abundance maps
 
-See http://www.emodnet-biology.eu/blog/oops
+This is the Github repository of the EMODnet Biology product described here:
+
+http://www.emodnet-biology.eu/blog/oops
 
 This directory contains all the steps to create the latest gridded map products of zooplankton.
 
